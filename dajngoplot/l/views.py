@@ -1,13 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render
-from matplotlib import pylab
-from pylab import *
-import PIL, PIL.Image
-from io import BytesIO
+import PIL
+import PIL.Image
 import matplotlib
 import pandas as pd
 import seaborn as sb
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.shortcuts import render
+from io import BytesIO
+from matplotlib import pylab
+from pylab import *
 
 matplotlib.use('Agg')
 from matplotlib import pyplot
