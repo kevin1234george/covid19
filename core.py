@@ -28,6 +28,8 @@ del y['Country']
 del y['Country Name']
 del y['Region']
 print(y)
+
+
 def create_dataset(X, y, time_steps=1):
     Xs, ys = [], []
     for i in range(len(X) - time_steps):
@@ -36,11 +38,11 @@ def create_dataset(X, y, time_steps=1):
         ys.append(y.iloc[i + time_steps])
     return np.array(Xs), np.array(ys)
 
+
 train_size = int(len(y) * 0.8)
 test_size = len(y) - train_size
 train, test = y.iloc[0:train_size], y.iloc[train_size:len(y)]
 print(len(train), len(test))
-
 
 import numpy as np
 
@@ -55,16 +57,14 @@ print(X_train.shape, y_train.shape)
 
 model = keras.Sequential()
 model.add(keras.layers.LSTM(
-  units=128,
-  input_shape=(X_train.shape[1], X_train.shape[2])
+    units=128,
+    input_shape=(X_train.shape[1], X_train.shape[2])
 ))
 model.add(keras.layers.Dense(units=4))
 model.compile(
-  loss='mean_squared_error',
-  optimizer=keras.optimizers.Adam(0.001)
+    loss='mean_squared_error',
+    optimizer=keras.optimizers.Adam(0.001)
 )
-
-
 
 history = model.fit(
     X_train, y_train,
