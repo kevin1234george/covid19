@@ -47,9 +47,10 @@ def showimage(request):
 
 
 def alldata(request):
-    sb.set_style("ticks")
-    sb.pairplot(df, hue='Region', diag_kind="kde", kind="scatter", palette="husl")
 
+    sb.set_style("ticks")
+    # sb.pairplot(df, hue='Region', diag_kind="kde", kind="scatter", palette="husl", bw=1.5)
+    sb.pairplot(df)
     buffer = BytesIO()
     canvas = pylab.get_current_fig_manager().canvas
     canvas.draw()
